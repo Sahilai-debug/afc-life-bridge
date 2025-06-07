@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -9,7 +8,7 @@ import { AppointmentService } from '@/lib/appointments';
 import { useAuth } from '@/contexts/AuthContext';
 import { Appointment } from '@/types';
 import { Calendar, Clock, User } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 export default function PatientCalendar() {
   const { user } = useAuth();
@@ -49,7 +48,7 @@ export default function PatientCalendar() {
               <h1 className="text-3xl font-bold text-gray-900">My Appointments</h1>
               <p className="text-gray-600">View and manage your scheduled appointments</p>
             </div>
-            <Link href="/dashboard/patient/book-appointment">
+            <Link to="/dashboard/patient/book-appointment">
               <Button>
                 <Calendar className="w-4 h-4 mr-2" />
                 Book New Appointment
@@ -117,7 +116,7 @@ export default function PatientCalendar() {
                 <p className="text-gray-600 mb-6">
                   You don't have any appointments yet. Book your first appointment to get started.
                 </p>
-                <Link href="/dashboard/patient/book-appointment">
+                <Link to="/dashboard/patient/book-appointment">
                   <Button>Book Your First Appointment</Button>
                 </Link>
               </CardContent>

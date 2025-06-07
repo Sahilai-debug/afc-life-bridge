@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -6,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Calendar, Plus, Phone, Clock, User } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 export function PatientDashboard() {
   const { user } = useAuth();
@@ -30,7 +29,7 @@ export function PatientDashboard() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Link href="/dashboard/patient/book-appointment">
+            <Link to="/dashboard/patient/book-appointment">
               <Button className="w-full">
                 Book Now
               </Button>
@@ -49,7 +48,7 @@ export function PatientDashboard() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Link href="/dashboard/patient/calendar">
+            <Link to="/dashboard/patient/calendar">
               <Button variant="outline" className="w-full">
                 View Calendar
               </Button>
@@ -68,7 +67,7 @@ export function PatientDashboard() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Link href="/dashboard/patient/settings">
+            <Link to="/dashboard/patient/settings">
               <Button variant="outline" className="w-full">
                 Manage Profile
               </Button>

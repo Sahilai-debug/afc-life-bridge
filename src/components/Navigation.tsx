@@ -5,7 +5,7 @@ import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { LogOut, User, Calendar, Settings, Users } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 export function Navigation() {
   const { user, logout } = useAuth();
@@ -17,19 +17,19 @@ export function Navigation() {
       case 'patient':
         return (
           <>
-            <Link href="/dashboard/patient">
+            <Link to="/dashboard/patient">
               <Button variant="ghost" size="sm">
                 <User className="w-4 h-4 mr-2" />
                 Dashboard
               </Button>
             </Link>
-            <Link href="/dashboard/patient/calendar">
+            <Link to="/dashboard/patient/calendar">
               <Button variant="ghost" size="sm">
                 <Calendar className="w-4 h-4 mr-2" />
                 Calendar
               </Button>
             </Link>
-            <Link href="/dashboard/patient/settings">
+            <Link to="/dashboard/patient/settings">
               <Button variant="ghost" size="sm">
                 <Settings className="w-4 h-4 mr-2" />
                 Settings
@@ -40,19 +40,19 @@ export function Navigation() {
       case 'doctor':
         return (
           <>
-            <Link href="/dashboard/doctor">
+            <Link to="/dashboard/doctor">
               <Button variant="ghost" size="sm">
                 <User className="w-4 h-4 mr-2" />
                 Dashboard
               </Button>
             </Link>
-            <Link href="/dashboard/doctor/calendar">
+            <Link to="/dashboard/doctor/calendar">
               <Button variant="ghost" size="sm">
                 <Calendar className="w-4 h-4 mr-2" />
                 Calendar
               </Button>
             </Link>
-            <Link href="/dashboard/doctor/patients">
+            <Link to="/dashboard/doctor/patients">
               <Button variant="ghost" size="sm">
                 <Users className="w-4 h-4 mr-2" />
                 Patients
@@ -63,19 +63,19 @@ export function Navigation() {
       case 'admin':
         return (
           <>
-            <Link href="/dashboard/admin">
+            <Link to="/dashboard/admin">
               <Button variant="ghost" size="sm">
                 <User className="w-4 h-4 mr-2" />
                 Dashboard
               </Button>
             </Link>
-            <Link href="/dashboard/admin/users">
+            <Link to="/dashboard/admin/users">
               <Button variant="ghost" size="sm">
                 <Users className="w-4 h-4 mr-2" />
                 Users
               </Button>
             </Link>
-            <Link href="/dashboard/admin/appointments">
+            <Link to="/dashboard/admin/appointments">
               <Button variant="ghost" size="sm">
                 <Calendar className="w-4 h-4 mr-2" />
                 Appointments
@@ -93,7 +93,7 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-8">
-            <Link href="/" className="text-xl font-bold text-blue-600">
+            <Link to="/" className="text-xl font-bold text-blue-600">
               AFC Massachusetts
             </Link>
             <div className="hidden md:flex items-center space-x-4">

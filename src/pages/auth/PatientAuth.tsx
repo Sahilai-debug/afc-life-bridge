@@ -2,7 +2,7 @@
 import React from 'react';
 import { Layout, Container } from '@/components/ui/layout';
 import { LoginForm } from '@/components/forms/LoginForm';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 export default function PatientAuth() {
   return (
@@ -13,7 +13,7 @@ export default function PatientAuth() {
           <div className="text-center">
             <p className="text-sm text-gray-600">
               Don't have an account?{' '}
-              <Link href="/auth/register" className="font-medium text-blue-600 hover:text-blue-500">
+              <Link to="/auth/register" className="font-medium text-blue-600 hover:text-blue-500">
                 Register here
               </Link>
             </p>

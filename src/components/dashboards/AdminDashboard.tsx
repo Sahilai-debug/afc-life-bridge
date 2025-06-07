@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -9,7 +8,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { AuthService } from '@/lib/auth';
 import { AppointmentService } from '@/lib/appointments';
 import { User, Appointment } from '@/types';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 export function AdminDashboard() {
   const { user } = useAuth();
@@ -95,13 +94,13 @@ export function AdminDashboard() {
             <CardDescription>Common administrative tasks</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
-            <Link href="/dashboard/admin/users">
+            <Link to="/dashboard/admin/users">
               <Button variant="outline" className="w-full justify-start">
                 <Users className="w-4 h-4 mr-2" />
                 Manage Users
               </Button>
             </Link>
-            <Link href="/dashboard/admin/appointments">
+            <Link to="/dashboard/admin/appointments">
               <Button variant="outline" className="w-full justify-start">
                 <Calendar className="w-4 h-4 mr-2" />
                 View All Appointments

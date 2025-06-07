@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -8,7 +7,7 @@ import { Calendar, Users, Clock, TrendingUp } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { AppointmentService } from '@/lib/appointments';
 import { Appointment } from '@/types';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 export function DoctorDashboard() {
   const { user } = useAuth();
@@ -111,7 +110,7 @@ export function DoctorDashboard() {
               <p className="text-gray-600">No appointments scheduled for today</p>
             )}
             <div className="mt-4">
-              <Link href="/dashboard/doctor/calendar">
+              <Link to="/dashboard/doctor/calendar">
                 <Button variant="outline" className="w-full">
                   View Full Calendar
                 </Button>
@@ -126,13 +125,13 @@ export function DoctorDashboard() {
             <CardDescription>Common tasks and shortcuts</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
-            <Link href="/dashboard/doctor/patients">
+            <Link to="/dashboard/doctor/patients">
               <Button variant="outline" className="w-full justify-start">
                 <Users className="w-4 h-4 mr-2" />
                 View All Patients
               </Button>
             </Link>
-            <Link href="/dashboard/doctor/calendar">
+            <Link to="/dashboard/doctor/calendar">
               <Button variant="outline" className="w-full justify-start">
                 <Calendar className="w-4 h-4 mr-2" />
                 Manage Schedule

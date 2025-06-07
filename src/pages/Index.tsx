@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -6,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Layout, Container } from '@/components/ui/layout';
 import { User, Stethoscope, Shield, Heart, Clock, Users } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
@@ -28,7 +27,7 @@ const Index = () => {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <Link href="/auth/patient">
+                <Link to="/auth/patient">
                   <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
                     <CardHeader className="text-center">
                       <User className="w-12 h-12 mx-auto text-blue-600 mb-4" />
@@ -45,7 +44,7 @@ const Index = () => {
                   </Card>
                 </Link>
 
-                <Link href="/auth/doctor">
+                <Link to="/auth/doctor">
                   <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
                     <CardHeader className="text-center">
                       <Stethoscope className="w-12 h-12 mx-auto text-green-600 mb-4" />
@@ -62,7 +61,7 @@ const Index = () => {
                   </Card>
                 </Link>
 
-                <Link href="/auth/admin">
+                <Link to="/auth/admin">
                   <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
                     <CardHeader className="text-center">
                       <Shield className="w-12 h-12 mx-auto text-purple-600 mb-4" />
@@ -131,7 +130,7 @@ const Index = () => {
               <p className="text-xl text-gray-600 mb-8">
                 New to AFC Massachusetts? Register as a patient to begin your care journey
               </p>
-              <Link href="/auth/register">
+              <Link to="/auth/register">
                 <Button size="lg" className="text-lg px-8 py-3">
                   Register as Patient
                 </Button>

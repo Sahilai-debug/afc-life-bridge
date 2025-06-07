@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -11,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from 'react-router-dom';
 import { UserRole } from '@/types';
 
 const loginSchema = z.object({
@@ -28,7 +27,7 @@ interface LoginFormProps {
 export function LoginForm({ role }: LoginFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors } } = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
@@ -43,7 +42,7 @@ export function LoginForm({ role }: LoginFormProps) {
           title: 'Login successful',
           description: 'Welcome back!',
         });
-        router.push(`/dashboard/${role}`);
+        navigate(`/dashboard/${role}`);
       } else {
         toast({
           title: 'Login failed',

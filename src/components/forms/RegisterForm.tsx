@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -11,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from 'react-router-dom';
 
 const registerSchema = z.object({
   fullName: z.string().min(2, 'Full name must be at least 2 characters'),
@@ -30,7 +29,7 @@ type RegisterForm = z.infer<typeof registerSchema>;
 export function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
   const { register: registerUser } = useAuth();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors } } = useForm<RegisterForm>({
     resolver: zodResolver(registerSchema),
@@ -52,7 +51,7 @@ export function RegisterForm() {
           title: 'Registration successful',
           description: 'Welcome to AFC Massachusetts!',
         });
-        router.push('/dashboard/patient');
+        navigate('/dashboard/patient');
       } else {
         toast({
           title: 'Registration failed',
